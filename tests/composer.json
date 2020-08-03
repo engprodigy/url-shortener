@@ -1,0 +1,7 @@
+{
+    "name": "yourls/test",
+    "description": "Test Case",
+    "require": {
+        "phpunit/phpunit": "^9"
+    }
+}
