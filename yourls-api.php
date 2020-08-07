@@ -7,6 +7,8 @@
  *
  */
 
+//curl_setopt ($curl_ch, CURLOPT_CAINFO, dirname(__FILE__)."/cacert.pem");
+
 define( 'YOURLS_API', true );
 require_once( dirname( __FILE__ ) . '/includes/load-yourls.php' );
 yourls_maybe_require_auth();

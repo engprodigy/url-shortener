@@ -57,7 +57,7 @@ yourls_html_head( 'install', yourls__( 'Install YOURLS' ) );
 <div id="login">
 	<form method="post" action="?"><?php // reset any QUERY parameters ?>
 		<p>
-			<img src="<?php yourls_site_url(); ?>/images/yourls-logo.svg" id="yourls-logo" alt="YOURLS" title="YOURLS" />
+			<!--<img src="<?php yourls_site_url(); ?>/images/yourls-logo.svg" id="yourls-logo" alt="YOURLS" title="YOURLS" />-->
 		</p>
 		<?php
 			// Print errors, warnings and success messages
@@ -73,12 +73,10 @@ yourls_html_head( 'install', yourls__( 'Install YOURLS' ) );
 
 			// Display install button or link to admin area if applicable
 			if( !yourls_is_installed() && !isset($_REQUEST['install']) ) {
-				echo '<p style="text-align: center;"><input type="submit" name="install" value="' . yourls__( 'Install YOURLS') .'" class="button" /></p>';
+				echo '<p style="text-align: center;"><input type="submit" name="install" value="' . yourls__( 'Install URL SHORTNER') .'" class="button" /></p>';
 			} else {
-				if( count($error) == 0 )
-					echo '<p style="text-align: center;">&raquo; <a href="'.yourls_admin_url().'" title="' . yourls__( 'YOURLS Administration Page') . '">' . yourls__( 'YOURLS Administration Page') . '</a></p>';
+				
 			}
 		?>
 	</form>
 </div>
-<?php yourls_html_footer(); ?>

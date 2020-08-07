@@ -1,0 +1,38 @@
+# comment
+/user/config-sample.php
+/user/config.php
+user/config.php
+/.vscode
+.vscode
+/README.md
+README.md
+/sample-public-api.txt
+sample-public-api.txt
+sample-public-front-page.txt
+sample-remote-api-call.txt
+sample-robots.txt
+/myurlshortnerclient
+myurlshortnerclient
+/tests
+tests
+# Ignore server configuration files
+#.htaccess
+#*.config
+#*.conf
+[Rr]obots.txt
+# Ignore everything in user/
+user/*
+# ... except config sample
+!user/config-sample.php
+# ... core plugins
+!user/plugins/hyphens-in-urls/
+!user/plugins/random-bg/
+!user/plugins/random-shorturls/
+!user/plugins/sample-page/
+!user/plugins/sample-plugin/
+!user/plugins/sample-toolbar/
+# ... example pages
+!user/pages/examplepage.php
+# ... and index.html files
+!user/index.html
+!user/**/index.html

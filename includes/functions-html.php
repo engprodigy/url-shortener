@@ -931,7 +931,10 @@ function yourls_content_type_header( $type ) {
     yourls_do_action( 'content_type_header', $type );
 	if( !headers_sent() ) {
 		$charset = yourls_apply_filter( 'content_type_header_charset', 'utf-8' );
-		header( "Content-Type: $type; charset=$charset" );
+		//header( "Content-Type: $type; Access-Control-Allow-Origin: *; 
+		//Access-Control-Allow-Credentials : true ; charset=$charset" );
+		header( "Content-Type: $type;  charset=$charset" );
+		//header("Access-Control-Allow-Origin: *");
 		return true;
 	}
 	return false;

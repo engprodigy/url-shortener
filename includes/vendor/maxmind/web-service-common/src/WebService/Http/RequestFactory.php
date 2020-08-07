@@ -18,20 +18,14 @@ class RequestFactory
      */
     private $ch;
 
-    public function __destruct()
+    public function __construct()
     {
-        if (!empty($this->ch)) {
-            curl_close($this->ch);
-        }
+        $this->ch = curl_init();
     }
 
-    private function getCurlHandle()
+    public function __destruct()
     {
-        if (empty($this->ch)) {
-            $this->ch = curl_init();
-        }
-
-        return $this->ch;
+        curl_close($this->ch);
     }
 
     /**
@@ -42,7 +36,7 @@ class RequestFactory
      */
     public function request($url, $options)
     {
-        $options['curlHandle'] = $this->getCurlHandle();
+        $options['curlHandle'] = $this->ch;
 
         return new CurlRequest($url, $options);
     }
