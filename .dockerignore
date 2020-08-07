@@ -13,8 +13,7 @@ sample-remote-api-call.txt
 sample-robots.txt
 /myurlshortnerclient
 myurlshortnerclient
-/tests
-tests
+
 # Ignore server configuration files
 #.htaccess
 #*.config
