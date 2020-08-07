@@ -10,4 +10,4 @@ assets/less/    export-ignore
 /.git*          export-ignore
 /*.md           export-ignore
 #tests/          export-ignore
-/*.dist         export-ignore
+#/*.dist         export-ignore
