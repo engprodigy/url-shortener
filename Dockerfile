@@ -16,19 +16,29 @@ RUN { \
 
 RUN a2enmod rewrite expires
 
+RUN rm -rf /var/lib/apt/lists/*
+RUN apt-get update 
+RUN apt-cache gencaches
+#RUN apt-get install zip -y 
+#RUN apt-get install unzip
 
+#RUN apt-get install php-cli php-mbstring git unzip
+#RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+#COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+RUN apt-get update && apt-get -y --no-install-recommends install git unzip \
+    && php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
+    && rm -rf /var/lib/apt/lists/*
 
-ENV URLSHORTNER_VERSION 0.1-alpha
-ENV URLSHORTNER_SHA256 c4e0541b517cb545da43b477144518c212022680d7b8b105cae5b159f634db95
-
+ENV URLSHORTNER_VERSION master
+ENV URLSHORTNER_SHA256 53a188b8cbaa5ae4a11009311ac2cf817ca1f5e059554d145f2003db23bd72d1
 RUN set -eux; \
-    curl -o urlshortner.tar.gz -fsSL "https://github.com/engprodigy/urlshortner/archive/${URLSHORTNER_VERSION}.tar.gz"; \
-    echo "$URLSHORTNER_SHA256 *urlshortner.tar.gz" | sha256sum -c -; \
+    curl -o urlshortner.zip -fsSL "https://github.com/engprodigy/urlshortner/archive/${URLSHORTNER_VERSION}.zip"; \
+    echo "$URLSHORTNER_SHA256 *urlshortner.zip" | sha256sum -c -; \
 # upstream tarballs include ./urlshortner-${URLSHORTNER_VERSION}/ so this gives us /usr/src/urlshortner-${URLSHORTNER_VERSION}
-    tar -xf urlshortner.tar.gz -C /usr/src/; \
+    unzip -o urlshortner.zip -d /usr/src/; \
 # move back to a common /usr/src/urlshortner
     mv "/usr/src/urlshortner-${URLSHORTNER_VERSION}" /usr/src/urlshortner; \
-    rm urlshortner.tar.gz; \
+    rm urlshortner.zip; \
     chown -R www-data:www-data /usr/src/urlshortner
 
 COPY docker-entrypoint.sh /usr/local/bin/

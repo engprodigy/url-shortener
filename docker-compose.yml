@@ -1,29 +1,63 @@
 version: '3.3'
 
+
 services:
    db:
      image: mysql:5.7
+     container_name: urlshortnerservice
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: Tingate200@
-       MYSQL_DATABASE: multisites-wpdb
+       MYSQL_DATABASE: default
        MYSQL_USER: admin
        MYSQL_PASSWORD: Tingate200@
+     #networks:
+       #- esnet
 
    urlshortner:
      depends_on:
        - db
-     image: urlshortner:2.0
+     image: urlshortner:2.0  #for deployment change to 2.0
+     container_name: urlshortnerapibackend
      ports:
        - "80:80"
+     #networks:
+       #- esnet  
      restart: always
+     #volumes: 
+     #  - C:/ProgramData/db_data/:/var/www/html/
+        
      environment:
        YOURLS_DB_HOST: db:3306
        YOURLS_DB_USER: root
        YOURLS_DB_PASS: Tingate200@
-       YOURLS_SITE: http://urls.com
+       YOURLS_SITE: http://urls.com  #don't use localhost edit your host file
        YOURLS_USER: username
        YOURLS_PASS: password
-networks:
-     backend:
+    
+   
+   urlshortnerclient:
+        
+     image: myurlshortnerclient:2.0 #for deployment change to urlshortnerclient:1.0
+     container_name: urlshortnerclientapp
+     stdin_open: true # docker run -i
+     tty: true
+        
+     ports:
+        - "3000:3000"
+     #networks:
+        #- esnet
+     restart: always
+        
+           
+     environment:
+       REACT_APP_API_URL: http://urls.com/yourls-api.php? #urls.com has used in urlshortner YOURLS_SITE env. variable 
+       REACT_APP_API_USERNAME: username   #has used in urlshortner YOURLS_USER env. variable 
+       REACT_APP_API_PASSWORD: password   #has used in urlshortner YOURLS_PASS env. variable 
+
+
+
+  
+
+
     

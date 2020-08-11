@@ -1,0 +1,25 @@
+For the url shortner application using a custom domain is more appropriate for running the application.
+Follow the below instructions to map a custom domain to an ip on your local computer:
+Instruction to update file host name
+
+Linux
+Use the following instructions if you’re running Linux:
+
+Open a Terminal window.
+Enter the following command to open the hosts file in a text editor:
+
+sudo nano /etc/hosts
+Enter your domain user password.
+add this to the host file: "127.0.1.2     urls.com  # source server" 
+
+#urls.com is the specified YOURL_SITE in the docker-compose.yml, you can use ur own name but it should be
+the same as the one specified in the docker-compose.yml#
+
+This will allow to run the back end by typing urls.com and give the shortened url as example - urls.com/d84ndn -
+Press Control-X.
+When you are asked if you want to save your changes, enter y
+
+Disable CORS in browser by using a plugin. I've not fully resolved the CORS issue in the server backend. I'm 
+still working on it.
+
+On the front end application, after entering the url, press Enter to trigger the url shortner process.

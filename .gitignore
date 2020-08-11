@@ -11,7 +11,7 @@
 user/*
 myurlshortnerclient/
 # ... except config sample
-!user/config-sample.php
+#!user/config-sample.php
 # ... core plugins
 #!user/plugins/hyphens-in-urls/
 #!user/plugins/random-bg/
@@ -48,3 +48,4 @@ Desktop.ini
 .DS_Store
 # NetBeans files
 /nbproject/
+.vscode
