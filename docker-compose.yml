@@ -17,7 +17,7 @@ services:
    urlshortner:
      depends_on:
        - db
-     image: urlshortner:2.0  #for deployment change to 2.0
+     image: engprodigy/urlshortner:2.0  #or use urlshortner:2.0 for the locally built docker image
      container_name: urlshortnerapibackend
      ports:
        - "80:80"
@@ -38,7 +38,7 @@ services:
    
    urlshortnerclient:
         
-     image: myurlshortnerclient:2.0 #for deployment change to urlshortnerclient:1.0
+     image: engprodigy/urlshortnerclient:2.0 #or use urlshortnerclient:2.0 for the local docker image
      container_name: urlshortnerclientapp
      stdin_open: true # docker run -i
      tty: true

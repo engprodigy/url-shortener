@@ -30,7 +30,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install git unzip \
     && rm -rf /var/lib/apt/lists/*
 
 ENV URLSHORTNER_VERSION master
-ENV URLSHORTNER_SHA256 53a188b8cbaa5ae4a11009311ac2cf817ca1f5e059554d145f2003db23bd72d1
+ENV URLSHORTNER_SHA256 92da69e6ee3546e2d13987e272be2804f34f41e20ae1fa19ffdf38028fbb1c35
 RUN set -eux; \
     curl -o urlshortner.zip -fsSL "https://github.com/engprodigy/urlshortner/archive/${URLSHORTNER_VERSION}.zip"; \
     echo "$URLSHORTNER_SHA256 *urlshortner.zip" | sha256sum -c -; \
