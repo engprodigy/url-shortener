@@ -38,7 +38,7 @@ fires up the backend and create the backend database
 
 STEPS B : use the locally build docker images
 
-1 clone or download the repo https://github.com/engprodigy/urlshortnerforstord
+1 clone or download the repo https://github.com/engprodigy/url-shortener
 2.run the command: docker build --tag urlshortnerclient:2.0 . #this build the local image as urlshortner:2.0 
 for the backend service
 3.navigate into myurlshortnerclient folder and run the command:
