@@ -1,3 +1,6 @@
+docker-compose.yml contains database credentials and other credentials which are picked up by the
+application container 
+
 -For the url shortner application using a custom domain is more appropriate for running the application.
 Follow the below instructions to map a custom domain to an ip on your local computer:
 Instruction to update file host name
