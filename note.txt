@@ -42,7 +42,7 @@ STEPS B : use the locally build docker images
 2.run the command: docker build --tag urlshortnerclient:2.0 . #this build the local image as urlshortner:2.0 
 for the backend service
 3.navigate into myurlshortnerclient folder and run the command:
-docker build --tag urlshortnerclient:2.0 .  #this build the local image as urlshortner:2.0 
+docker build --tag urlshortnerclient:2.0 .  #this build the local image as urlshortnerclient:2.0 
 for the front end client
 4. Navigate back to the main folder, open the docker-compose.yml file and change the image name for the
 urlshortner service from engprodigy/urlshortner:2.0 to urlshortner:2.0 and also the urlshortnerclient service
